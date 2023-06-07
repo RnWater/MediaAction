@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="StateBar">
+        <attr name="state_bar_back_color" format="color"/>
+        <attr name="state_bar_need_dark" format="boolean"/>
+    </declare-styleable>
+</resources>

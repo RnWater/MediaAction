@@ -1,0 +1,48 @@
+pluginManagement {
+    repositories {
+        maven {
+            url 'https://maven.aliyun.com/repository/google'
+            name 'aliyun-google'
+        }
+        maven {
+            url 'https://maven.aliyun.com/repository/public'
+            name 'aliyun'
+        }
+        maven {
+            url 'https://mvn.cloud.alipay.com/nexus/content/repositories/releases/'
+            name 'alipay'
+            credentials {
+                username 'mvn_read_ws'
+                password 'mrk8929'
+            }
+        }
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        maven {
+            url 'https://maven.aliyun.com/repository/google'
+            name 'aliyun-google'
+        }
+        maven {
+            url 'https://maven.aliyun.com/repository/public'
+            name 'aliyun'
+        }
+        maven {
+            url 'https://mvn.cloud.alipay.com/nexus/content/repositories/releases/'
+            name 'alipay'
+            credentials {
+                username 'mvn_read_ws'
+                password 'mrk8929'
+            }
+        }
+        google()
+        mavenCentral()
+    }
+}
+rootProject.name = "MediaAction"
+include ':app'

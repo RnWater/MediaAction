@@ -1,0 +1,212 @@
+def buildTime = getBuildTime();
+ext {
+    //是否以组件化运行
+    compileSdkVersion = 28
+    buildToolsVersion = '30.0.3'
+    minSdkVersion = 21
+    targetSdkVersion = 27
+    versionCode = 1
+    versionName = "$buildTime"
+    viewpager2Version = '1.0.0'
+    easyProtectorVersion = '1.1.2'
+    applicationId = "com.henry.mediaaction"
+    appcompatVersion = "1.2.0"
+    supportVersion = "1.0.0"
+    gridLayoutVersion = "1.0.0"
+
+    recyclerViewVersion = "1.0.0"
+    designVersion = "1.0.0"
+    constraintLayoutVersion = "1.1.3"
+    glideVersion = "4.12.0"
+    butterknifeVersion = "10.2.1"
+    butterknifeCompilerVersion = "10.2.1"
+    gsonVersion = "2.8.1"
+
+    arouterApiVersion = "1.5.1"
+    arouterCompilerVersion = "1.5.1"
+    //rthttp 网络相关
+    rxjava2Version = '2.2.9'
+    rxjava2RxandroidVersion = '2.1.1'
+    retrofit2AdapterRxjava2Version = '2.5.0'
+    okHttpVersion = "3.14.1"
+    okHttpLogVersion = "3.7.0"
+    okioVersion = "2.6.0"
+    //greenDao
+    greenDaoVersion = "3.2.2"
+    greenDaoGeneratorVersion = "3.0.0"
+
+    smartRefreshLayoutVersion = "1.1.0-alpha-16"
+    agentwebVersion = "4.0.3-beta"
+    //阿里播放
+    aliyunPlayerVersion = "4.7.0-full"
+    alivcConanVersion = "0.9.5.1"
+    filedownloaderVersion = "1.7.7"
+    BGABannerVersion = "2.2.7@aar"
+    FlycoTabLayoutVersion = "2.1.2@aar"
+    swipelayoutVersion = "1.2.0@aar"
+    multidexVersion = "2.0.0"
+    bannerVersion = "2.1.0"
+    fastJsonVersion = "1.1.71.android"
+    zxingVersion = "3.3.0"
+    wechatSdkVersion = "5.5.8"
+    wechatMmkvVersion = "1.2.6"
+    sqlcipherVersion = "3.5.9" //4.1.1 适配arm64-v8a 架构
+    sqlandroidxVersion = "2.0.1" //androidx
+    loadMoreVersion = "1.0.4"
+    ijkPlayerVersion = "0.8.8"
+
+    //local maven
+    kyhVideoVersion = "1.0.3"
+    easyPermissionVersion = "1.0.2"
+    libMarsdaemonVersion = "1.0.0"
+    autolayoutVersion = "1.4.5"
+    transformationsVersion = "2.0.1"
+    animationVersion = "1.0.0"
+    flexboxVersion = "0.2.6"
+
+    //react native version
+    reactnativeVersion = "0.62.2"
+    pictureSelectorVersion = "1.0.4"
+    aliyunOssVersion = "2.9.4"
+    aliyunSLSVersion = "2.6.4"
+    aiaMpaasVersion = "0.0.45"
+    aiaCommonUtilVersion = "0.0.16"
+//    aliyunSlsVersion = "2.4.2"
+    lottieVersion = "3.5.0"
+    aiaCommonUIVersion = "0.0.5"
+    aiaCommonBaseVersion = "0.0.4"
+    aiaStateLayoutVersion = "0.0.2"
+    aiaOELoginVersion = "0.0.5"
+    aiaOeSettingVersion = '0.0.1'
+    flexboxVersion = "0.2.6"
+    leakcanaryVersion = "2.7"
+    //众安埋点版本
+    zhonganTrackingeventVersion = "0.0.18"
+    rxbinding2Version = "2.1.1"
+
+    aaAnalyticsVersion = "1.2.9"
+    aaUserprofileVersion = "1.1.0"
+    aaSdkcoreVersion = "1.9.0"
+    hmspushVersion = "5.3.0.304"
+    alifaceVersion = "1.4.9"
+    dynatracVersion = "8.231.2.1007@aar"
+    toolkitVersion = "1.0.0" //android 12 以前高斯模糊官方推荐工具库
+    kotlinStdlibVersion = "1.5.31"
+    coreKtxVersion = "1.6.0"
+    retrofitVersion = "2.9.0"
+
+
+    //---------------------------------------------------------------
+    appcompat = "androidx.appcompat:appcompat:$appcompatVersion"
+    support = "androidx.legacy:legacy-support-v4:$supportVersion"
+    gson = "com.google.code.gson:gson:$gsonVersion"
+    flexbox = "com.google.android:flexbox:$flexboxVersion"
+
+    contraintLayout = "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
+    recyclerView = "androidx.recyclerview:recyclerview:$recyclerViewVersion"
+    design = "com.google.android.material:material:$designVersion"
+    glide = "com.github.bumptech.glide:glide:$glideVersion"
+    glideCompiler = "com.github.bumptech.glide:compiler:$glideVersion"
+
+    butterknife = "com.jakewharton:butterknife:$butterknifeVersion"
+    butterknifeCompiler = "com.jakewharton:butterknife-compiler:$butterknifeCompilerVersion"
+
+    arouterApi = "com.alibaba:arouter-api:$arouterApiVersion"
+    arouterCompiler = "com.alibaba:arouter-compiler:$arouterCompilerVersion"
+    //模拟器检测  多开检测  root检测 ps检测 Xposed框架检查
+    easyProtector = "com.lahm.library:easy-protector-release:$easyProtectorVersion"
+    //rthttp 网络相关
+    rxjava2 = "io.reactivex.rxjava2:rxjava:$rxjava2Version"
+    rxjava2Rxandroid = "io.reactivex.rxjava2:rxandroid:$rxjava2RxandroidVersion"
+    okHttp = "com.squareup.okhttp3:okhttp:$okHttpVersion"
+    okio = "com.squareup.okio:okio:$okioVersion"
+    okHttpLogIntercept = "com.squareup.okhttp3:logging-interceptor:$okHttpLogVersion"
+    hmspushVersion = "com.huawei.hms:push:$hmspushVersion"
+
+//    rxbinding2='com.jakewharton.rxbinding2:rxbinding:$rxbinding2Version'
+    //greenDao
+    greenDao = "org.greenrobot:greendao:$greenDaoVersion"
+    greenDaoGenerator = "org.greenrobot:greendao-generator:$greenDaoGeneratorVersion"
+
+    smartRefreshLayout = "com.scwang.smartrefresh:SmartRefreshLayout:$smartRefreshLayoutVersion"
+    agentweb = "com.just.agentweb:agentweb:$agentwebVersion"
+    //高德
+    gaoDeMap = "com.amap.api:location:latest.integration"
+    aliyunPlayer = "com.aliyun.sdk.android:AliyunPlayer:$aliyunPlayerVersion"
+    alivcConan = "com.alivc.conan:AlivcConan:$alivcConanVersion"
+
+    BGABanner = "cn.bingoogolapple:bga-banner:$BGABannerVersion"
+//    alicloud = "com.aliyun.ams:alicloud-android-man:$alicloudVersion" //移动数据分析(Mobile Analytics)
+    FlycoTabLayout = "com.flyco.tablayout:FlycoTabLayout_Lib:$FlycoTabLayoutVersion"
+    swipelayout = "com.daimajia.swipelayout:library:$swipelayoutVersion"
+    multidex = "androidx.multidex:multidex:$multidexVersion"
+
+//    alicloudBeacon = "com.aliyun.ams:alicloud-android-beacon:$alicloudBeaconVersion"
+//    alicloudUtdid = "com.aliyun.ams:alicloud-android-utdid:$alicloudUtdidVersion"
+//    alicloudPush = "com.aliyun.ams:alicloud-android-push:$alicloudPushVersion"
+//    alicloudUtils = "com.aliyun.ams:alicloud-android-utils:$alicloudUtilsVersion"
+//    alicloudUt = "com.aliyun.ams:alicloud-android-ut:$alicloudUtVersion"
+
+    fastJson = "com.alibaba:fastjson:$fastJsonVersion"
+    gridLayout = "androidx.gridlayout:gridlayout:$gridLayoutVersion"
+    zxing = "com.google.zxing:core:$zxingVersion"
+    wechat = "com.tencent.mm.opensdk:wechat-sdk-android-without-mta:$wechatSdkVersion"
+    mmkv = "com.tencent:mmkv-static:$wechatMmkvVersion"
+
+    sqlcipher = "net.zetetic:android-database-sqlcipher:$sqlcipherVersion@aar"
+//    sqlandroidx = "androidx.sqlite:sqlite:$sqlandroidxVersion"
+
+    loadMore = "in.srain.cube:ptr-load-more:$loadMoreVersion"
+    ijkPlayer = "tv.danmaku.ijk.media:ijkplayer-java:$ijkPlayerVersion"
+//    ijkPlayer64 = "tv.danmaku.ijk.media:ijkplayer-arm64:$ijkPlayerVersion"
+
+    //local maven
+    kyhVideo = "com.aia.china:kyhvideo:$kyhVideoVersion"
+    easyPermission = "com.aia.china:EasyPermission:$easyPermissionVersion"
+    libMarsdaemon = "com.aia.china:LibMarsdaemon:$libMarsdaemonVersion"
+    //魅族页面适配
+    autolayout = "com.zhy:autolayout:$autolayoutVersion"
+    //蒙版效果
+    transformations = "jp.wasabeef:glide-transformations:$transformationsVersion"
+    animation = "androidx.dynamicanimation:dynamicanimation:$animationVersion"
+    pictureSelector = "com.aia.china:picture-selector:$pictureSelectorVersion"
+    aliyunOss = "com.aliyun.dpa:oss-android-sdk:$aliyunOssVersion"
+    aliyunSLS = "com.aliyun.openservices:aliyun-log-android-sdk:$aliyunSLSVersion"
+    aiampaas = "com.aia.china:common-mpaas:$aiaMpaasVersion"
+    aiaCommonUtils = "com.aia.china:common-utils:$aiaCommonUtilVersion"
+    lottie = "com.airbnb.android:lottie:$lottieVersion"
+    aiaCommonUI = "com.aia.china:common-ui:$aiaCommonUIVersion"
+    aiaCommonBase = "com.aia.china:common-base:$aiaCommonBaseVersion"
+    aiaStateLayout = "com.aia.china:statelayoutview:$aiaStateLayoutVersion"
+    aiaOELogin = "com.aia.china:oe-login:$aiaOELoginVersion"
+    banner = "com.youth.banner:banner:$bannerVersion"
+    //leakcannary 内存泄漏框架
+    leakcanary = "com.squareup.leakcanary:leakcanary-android:$leakcanaryVersion"
+//    leakcanaryNoP = "com.squareup.leakcanary:leakcanary-android-no-op:$leakcanaryNoPVersion"
+    zhonganTrackingevent = "com.aia.china:zhongan-trackingevent:$zhonganTrackingeventVersion"
+    viewpager2 = "androidx.viewpager2:viewpager2:$viewpager2Version"
+
+    //AA埋点sdk相关sdk引用
+    aaAnalytics = "com.adobe.marketing.mobile:analytics:$aaAnalyticsVersion"
+    aaUserprofile = "com.adobe.marketing.mobile:userprofile:$aaUserprofileVersion"
+    aaSdkcore = "com.adobe.marketing.mobile:sdk-core:$aaSdkcoreVersion"
+    //AA埋点sdk相关sdk引用
+    dynatrace = "com.dynatrace.agent:agent-android:$dynatracVersion"
+    //阿里人脸识别
+    aliface = "com.aliyunface.sdk:aliyunface-sdk:$alifaceVersion"
+
+    toolKit = "com.aia.china:toolkit:$toolkitVersion"
+    kotlinStdlib = "org.jetbrains.kotlin:kotlin-stdlib:$kotlinStdlibVersion"
+    coreKtx = "androidx.core:core-ktx:$coreKtxVersion"
+    retrofit = "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    retrofitConver = "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    retrofitScalar = "com.squareup.retrofit2:converter-scalars:$retrofitVersion"
+}
+/**
+ * 获取编译时间
+ */
+String getBuildTime() {
+    Date date = new Date();
+    String dateStr = date.format("yyyyMMddHH");
+    return dateStr;
+}
