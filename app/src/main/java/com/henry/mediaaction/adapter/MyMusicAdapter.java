@@ -12,7 +12,7 @@ public class MyMusicAdapter extends BaseRecycleAdapter<MusicBean> {
     @Override
     protected void convert(BaseRecycleViewHolder holder, MusicBean musicBean, List<MusicBean> mList, int position) {
         holder.setText(R.id.music_name,musicBean.getMusicName());
-        holder.setText(R.id.music_song,musicBean.getMusicSpeaker());
+        holder.setText(R.id.music_song,musicBean.getSpeaker());
         holder.getView(R.id.music_item).setOnClickListener(view -> {
             if (click != null) {
                 click.onItemClick(view,position);

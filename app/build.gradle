@@ -11,13 +11,21 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode rootProject.ext.versionCode
         versionName rootProject.ext.versionName
-         javaCompileOptions {
-              annotationProcessorOptions {
-                  arguments = [AROUTER_MODULE_NAME: project.getName()]
-              }
-          }
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
+        externalNativeBuild {
+            cmake {
+                abiFilters 'armeabi-v7a'
+                cppFlags '-std=c++11'
+            }
+        }
+        ndk {
+            abiFilters 'armeabi-v7a'
+        }
     }
-
     buildTypes {
         release {
             minifyEnabled false
@@ -34,10 +42,9 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.3.0'
     implementation 'com.google.android.material:material:1.4.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    api rootProject.ext.gson
     api rootProject.ext.butterknife
+    implementation project(path: ':audio')
     annotationProcessor rootProject.ext.butterknifeCompiler
     api rootProject.ext.arouterApi
     annotationProcessor rootProject.ext.arouterCompiler
@@ -51,4 +58,5 @@ dependencies {
     }
     api rootProject.ext.rxjava2
     api rootProject.ext.rxjava2Rxandroid
+    api rootProject.ext.retrofit2Adapter
 }

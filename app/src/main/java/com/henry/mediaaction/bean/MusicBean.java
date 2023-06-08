@@ -1,40 +1,50 @@
 package com.henry.mediaaction.bean;
 
-public class MusicBean {
+import java.io.Serializable;
+
+public class MusicBean implements Serializable {
     private String musicName;
-    private String musicSpeaker;
-    private String musicUrl;
-    private String musicSize;
+    private String speaker;
+    private String audioUrl;
+    private String duration;
+    private String category;
 
     public String getMusicName() {
         return musicName;
     }
-
     public void setMusicName(String musicName) {
         this.musicName = musicName;
     }
 
-    public String getMusicSpeaker() {
-        return musicSpeaker;
+    public String getSpeaker() {
+        return speaker;
     }
 
-    public void setMusicSpeaker(String musicSpeaker) {
-        this.musicSpeaker = musicSpeaker;
+    public void setSpeaker(String speaker) {
+        this.speaker = speaker;
     }
 
-    public String getMusicUrl() {
-        return musicUrl;
+    public String getAudioUrl() {
+        return audioUrl;
     }
 
-    public void setMusicUrl(String musicUrl) {
-        this.musicUrl = musicUrl;
+    public void setAudioUrl(String audioUrl) {
+        this.audioUrl = audioUrl;
     }
 
-    public String getMusicSize() {
-        return musicSize;
+    public String getDuration() {
+        return duration;
     }
 
-    public void setMusicSize(String musicSize) {
-        this.musicSize = musicSize;
+    public void setDuration(String duration) {
+        this.duration = duration;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 }

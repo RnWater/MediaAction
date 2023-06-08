@@ -118,6 +118,7 @@ ext {
     //rthttp 网络相关
     rxjava2 = "io.reactivex.rxjava2:rxjava:$rxjava2Version"
     rxjava2Rxandroid = "io.reactivex.rxjava2:rxandroid:$rxjava2RxandroidVersion"
+
     okHttp = "com.squareup.okhttp3:okhttp:$okHttpVersion"
     okio = "com.squareup.okio:okio:$okioVersion"
     okHttpLogIntercept = "com.squareup.okhttp3:logging-interceptor:$okHttpLogVersion"
@@ -189,7 +190,7 @@ ext {
     //AA埋点sdk相关sdk引用
     aaAnalytics = "com.adobe.marketing.mobile:analytics:$aaAnalyticsVersion"
     aaUserprofile = "com.adobe.marketing.mobile:userprofile:$aaUserprofileVersion"
-    aaSdkcore = "com.adobe.marketing.mobile:sdk-core:$aaSdkcoreVersion"
+    aaSdkcore = "com.adobe.marketing.mocom.squareup.retrofit2:adapterbile:sdk-core:$aaSdkcoreVersion"
     //AA埋点sdk相关sdk引用
     dynatrace = "com.dynatrace.agent:agent-android:$dynatracVersion"
     //阿里人脸识别
@@ -198,9 +199,11 @@ ext {
     toolKit = "com.aia.china:toolkit:$toolkitVersion"
     kotlinStdlib = "org.jetbrains.kotlin:kotlin-stdlib:$kotlinStdlibVersion"
     coreKtx = "androidx.core:core-ktx:$coreKtxVersion"
+
     retrofit = "com.squareup.retrofit2:retrofit:$retrofitVersion"
     retrofitConver = "com.squareup.retrofit2:converter-gson:$retrofitVersion"
     retrofitScalar = "com.squareup.retrofit2:converter-scalars:$retrofitVersion"
+    retrofit2Adapter = "com.squareup.retrofit2:adapter-rxjava2:$retrofit2AdapterRxjava2Version"
 }
 /**
  * 获取编译时间

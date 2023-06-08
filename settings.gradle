@@ -46,3 +46,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "MediaAction"
 include ':app'
+include ':audio'
