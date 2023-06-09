@@ -3,11 +3,14 @@ import android.widget.TextView;
 import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.henry.audio.NativeLib;
+import com.henry.audio.OnErrorListener;
 import com.henry.mediaaction.R;
 import com.henry.mediaaction.arouter.ARouterPath;
 import com.henry.mediaaction.base.BasePresenter;
 import com.henry.mediaaction.base.MvpBaseActivity;
 import com.henry.mediaaction.bean.MusicBean;
+import com.henry.mediaaction.utils.Logger;
+
 import butterknife.BindView;
 @Route(path = ARouterPath.ONE_APP_MAIN.MusicPlayerActivity)
 public class MusicPlayerActivity extends MvpBaseActivity {
@@ -30,8 +33,15 @@ public class MusicPlayerActivity extends MvpBaseActivity {
     protected void initView() {
         setTitle(musicBean.getMusicName());
         nativeLib = new NativeLib();
-        String s = nativeLib.stringFromJNI();
-        native_test.setText(s);
+        OnErrorListener listener=new OnErrorListener() {
+            @Override
+            public void onError(String errorCode, String errorMsg) {
+                Logger.e("FFMPEG_LOG", errorCode + "--" + errorMsg);
+            }
+        };
+        nativeLib.setErrorListener(listener);
+        nativeLib.createChildThread();
+
     }
 
     @Override

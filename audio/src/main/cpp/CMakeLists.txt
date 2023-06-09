@@ -41,6 +41,9 @@ add_library(
         ${SOUNDTOUCH}/InterpolateShannon.cpp
         ${SOUNDTOUCH}/TDStretch.cpp
         ${SOUNDTOUCH}/PeakFinder.cpp
+        FFDecode.cpp
+        FFUnPacking.cpp
+        JavaListener.cpp
 )
 find_library(
         log-lib
