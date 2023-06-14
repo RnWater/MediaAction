@@ -45,10 +45,13 @@ public class MusicActivity extends MvpBaseActivity<MusicPresenter,BaseViewInter>
         LinearLayoutManager manager = new LinearLayoutManager(this);
         musicRecycle.setLayoutManager(manager);
         musicRecycle.setAdapter(adapter);
+        showLoading();
         presenter.getMusics();
     }
+
     @Override
     public void actionSuccess(String type, BaseResponse<List<MusicBean>>... responses) {
+        endLoading();
         if ("getMusics".equals(type)) {
             musicBeans.clear();
             musicBeans.addAll(responses[0].getData());
