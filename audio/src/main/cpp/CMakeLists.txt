@@ -27,7 +27,7 @@ add_library(
         FFDecode.cpp
         FFUnPacking.cpp
         JavaListener.cpp
-        AudioBean.cpp
+        FFAudio.cpp
         FFQueue.cpp
         FFPlayStatus.cpp
 )

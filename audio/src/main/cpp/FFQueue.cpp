@@ -7,7 +7,6 @@
 int FFQueue::putAvPacket(AVPacket *avPacket) {
     pthread_mutex_lock(&mutexPacket);
     queuePacket.push(avPacket);
-    LOGE("我的队列个数%d", queuePacket.size());
     pthread_cond_signal(&condPacket);
     pthread_mutex_unlock(&mutexPacket);
     return 0;

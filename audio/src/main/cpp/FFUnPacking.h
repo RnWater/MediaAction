@@ -8,7 +8,7 @@
 #include "FFLog.h"
 #include "JavaListener.h"
 #include "thread"
-#include "AudioBean.h"
+#include "FFAudio.h"
 extern "C" {
 #include "libavformat/avformat.h"
 };
@@ -16,9 +16,10 @@ extern "C" {
 class FFUnPacking {
 public:
     JavaListener *javaListener = NULL;
+    char* audioCopy;
     const char *audioUrl;
     AVFormatContext *pFormatContext = NULL;
-    AudioBean *audioBean = NULL;
+    FFAudio *audioBean = NULL;
     FFPlayStatus *playStatus=NULL;
 public:
     FFUnPacking(JavaListener *listener,FFPlayStatus *status);

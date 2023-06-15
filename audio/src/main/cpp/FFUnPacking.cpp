@@ -10,6 +10,7 @@ FFUnPacking::~FFUnPacking() {
 }
 
 void FFUnPacking::release() {
+    LOGE("界面退出");
     delete javaListener;
     this->javaListener = NULL;
     this->audioUrl = NULL;
@@ -17,9 +18,13 @@ void FFUnPacking::release() {
     this->audioBean = NULL;
     delete playStatus;
     this->playStatus = NULL;
+     if (audioCopy) {
+        LOGE("删除数据");
+        delete audioCopy;
+    }
 }
 
-FFUnPacking::FFUnPacking(JavaListener *listener,FFPlayStatus *status) {
+FFUnPacking::FFUnPacking(JavaListener *listener, FFPlayStatus *status) {
     this->javaListener = listener;
     playStatus = status;
 }
@@ -32,7 +37,6 @@ void unPack(FFUnPacking *ffUnPacking) {
 }
 
 void FFUnPacking::prepare() {
-    clearResource();
     std::thread unPacking(unPack, this);
     unPacking.detach();
 }
@@ -53,7 +57,7 @@ void FFUnPacking::unPackageAudio() {
         return;
     }
     if (!audioBean) {
-        audioBean = new AudioBean(playStatus);
+        audioBean = new FFAudio(playStatus);
     }
     audioBean->streamIndex = av_find_best_stream(pFormatContext,
                                                  AVMEDIA_TYPE_AUDIO, -1, -1, NULL, 0);
@@ -84,7 +88,11 @@ void FFUnPacking::unPackageAudio() {
 }
 
 void FFUnPacking::setMediaSource(const char *url) {
-    this->audioUrl = url;
+    clearResource();
+    int len = strlen(url);
+    audioCopy = (char *) malloc((len + 1) * sizeof(char));
+    strcpy(audioCopy, url);
+    this->audioUrl = audioCopy;
     LOGE("my audio url is %s", audioUrl);
 }
 
@@ -100,31 +108,27 @@ void FFUnPacking::start() {
         return;
     }
     int count = 0;
-    while (1) {
+    while (playStatus!=NULL&&!playStatus->exit) {
         AVPacket *avPacket = av_packet_alloc();
-        if (av_read_frame(pFormatContext, avPacket) == 0) {
-            if (avPacket->stream_index == audioBean->streamIndex) {
-                count++;
-                LOGE("我的帧个数%d",count);
-                audioBean->audioQueue->putAvPacket(avPacket);
+        if (pFormatContext!=NULL) {
+            if (av_read_frame(pFormatContext, avPacket) == 0) {
+                if (audioBean!=NULL) {
+                    if (avPacket->stream_index == audioBean->streamIndex) {
+                        count++;
+                        audioBean->audioQueue->putAvPacket(avPacket);
+                    } else {
+                        av_packet_free(&avPacket);
+                        av_free(avPacket);
+                        avPacket = NULL;
+                    }
+                }
             } else {
                 av_packet_free(&avPacket);
                 av_free(avPacket);
                 avPacket = NULL;
-            }
-        } else {
-            av_packet_free(&avPacket);
-            av_free(avPacket);
-            avPacket = NULL;
-            break;
-        };
+                break;
+            };
+        }
     }
-    while (audioBean->audioQueue->getQueueSize() > 0) {
-        AVPacket *recAvPacket = av_packet_alloc();
-        audioBean->audioQueue->getAvPacket(recAvPacket);
-        av_packet_free(&recAvPacket);
-        av_free(recAvPacket);
-        recAvPacket = NULL;
-    }
-    LOGE("解码完成");
+    audioBean->startPlay();
 }

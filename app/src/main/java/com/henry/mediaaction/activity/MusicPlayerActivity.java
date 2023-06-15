@@ -38,6 +38,7 @@ public class MusicPlayerActivity extends MvpBaseActivity {
             Logger.e("FFMPEG_LOG", "音频解封装打开。");
             nativeLib.start();
         });
+        Logger.e("FFMPEG_LOG","--->"+ musicBean.getAudioUrl());
         nativeLib.setSource(musicBean.getAudioUrl());
         nativeLib.prepare();
     }

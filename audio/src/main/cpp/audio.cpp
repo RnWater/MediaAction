@@ -90,12 +90,12 @@ Java_com_henry_audio_NativeLib_n_1prepare(JNIEnv *env, jobject thiz, jstring sou
         playStatus = new FFPlayStatus();
     }
     if (ffUnPacking == NULL) {
-        ffUnPacking = new FFUnPacking(listener,playStatus);
+        ffUnPacking = new FFUnPacking(listener, playStatus);
     }
     ffUnPacking->setMediaSource(audioSource);
     ffUnPacking->prepare();
-
-    env->ReleaseStringUTFChars(source, audioSource);
+    LOGE("执行完Prepare");
+//    env->ReleaseStringUTFChars(source, audioSource);
 }
 extern "C"
 JNIEXPORT void JNICALL
@@ -107,6 +107,7 @@ Java_com_henry_audio_NativeLib_n_1start(JNIEnv *env, jobject thiz) {
 extern "C"
 JNIEXPORT void JNICALL
 Java_com_henry_audio_NativeLib_n_1release(JNIEnv *env, jobject thiz) {
+    playStatus->exit = true;
     if (ffUnPacking) {
         delete ffUnPacking;
     }
